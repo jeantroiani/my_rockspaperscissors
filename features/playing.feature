@@ -3,14 +3,23 @@ Feature: Playing
 	As a player
 	I need to get two players
 
-Scenario: A player can register
+Scenario: you can select start a game with one player
+	
 	Given I am on the homepage
-	When I click "New Game"
-	And I enter my name
-	When I press "Play!"
-	Then I should be ready to play
+	Then I can click on comenzar partida
+	Then I click on un jugador
+	And I can fill in my name
+	Then I can click on Piedra
+	And I can see results
 
-Scenario: A player is playing
-	Given I've registered to play
-	When I choose Paper
-	Then I should see "RESULTS"
+
+Scenario: you can select start a game with two players
+
+	Given I am on the homepage
+	Then I can click on comenzar partida
+	Then I click on dos jugadores
+	And I can fill in my name
+	Then I should see esperando por un oponente
+	Given I am on the play_two
+
+	

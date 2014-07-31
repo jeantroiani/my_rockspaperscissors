@@ -1,23 +1,41 @@
-When(/^I click "(.*?)"$/) do |arg1|
-  click_link arg1
 
+Given /^(?:|I )am on homepage/ do |homepage|
+	visit '/'
 end
 
-When(/^I enter my name$/) do
+Then(/^I can click on comenzar partida$/) do
+  click_link("Comenzar partida")
+end
+
+Then(/^I click on dos jugadores$/) do
+  click_button("2 Jugadores")
+end
+
+Then(/^I can fill in my name$/) do
   fill_in "name", with: "Stephen"
+  click_button("A la carga!")
 end
 
-Then(/^I should be ready to play$/) do
-  expect(page).to have_content("Welcome")
+Then(/^I should see esperando por un oponente$/) do
+  expect(page).to have_content("Esperando por")
+end
+
+Then(/^I click on un jugador$/) do
+  click_button("1 Jugador")
+end
+
+Then(/^I can click on Piedra$/) do
+  click_button("Piedra")
+end
+
+Then(/^I can see results$/) do
+   expect(page).to have_content("Resultado:")
 end
 
 
 
-Given(/^I've registered to play$/) do
-  visit '/new-game'
-  click_button "Play!"
-end
 
-When(/^I choose Paper$/) do
-  click_button('Paper')
-end
+
+
+
+

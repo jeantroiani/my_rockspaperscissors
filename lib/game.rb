@@ -1,12 +1,12 @@
 class Game 
 
-	def initialize(player1, player2)
-		@player1 = player1
-		@player2 = player2
-		@players = [@player1, @player2]
+	def initialize
+		# @player1 = player1
+		# @player2 = player2
+		@players = []
 	end
 
-	BEATS = {rock: :scissors, scissors: :paper, paper: :rock}
+	BEATS = {piedra: :tijeras, tijeras: :papel, papel: :piedra}
 
 	attr_reader :players, :player1, :player2
 
@@ -19,4 +19,30 @@ class Game
 	def normalize(pick)
 		pick.downcase.to_sym
 	end
+
+	def players_full?
+		players.count == 2
+	end
+
+	def add_player(player)
+	players << player
+	end
+
+	def player1
+		players.first
+	end
+
+	def player2
+		players.last
+	end
+
+	def i_am(player_name)
+		players.select{|player|player.name== player_name}.first
+	end
+
+	def opponent(player_name)
+		players.reject{|player|player.name== player_name}.first
+	end
+
 end
+

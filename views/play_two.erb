@@ -1,10 +1,8 @@
-<div class="center">
 <h1>Bienvenido <%= @player%></h1>
 
-<form action="/play" method="POST">
+<form action="/play_two" method="POST">
 	<button name="pick" value="Papel">Papel</button>
-	<button name="pick" value="Piedra">Piedra</button>
+	<button name="pick" value="Piedra">Piedras</button>
 	<button name="pick" value="Tijeras">Tijeras</button>
 	<input type="hidden" name="name" value=<%=@name%>>
 </form>
-
